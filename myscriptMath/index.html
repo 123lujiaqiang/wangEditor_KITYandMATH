@@ -1,0 +1,35 @@
+<html>
+
+<head>
+  <script type="module" src="plugins/myscript-math-web/myscript-math-web.js"></script>
+  <script src="plugins/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <style>
+    myscript-math-web {
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <myscript-math-web id="mathweb" scheme="https" host="webdemoapi.myscript.com" type="MATH" timeout="2000"
+    applicationkey="你自己的key" hmackey="你自己的key"
+    mimetypes='["application/x-latex", "application/vnd.myscript.jiix"]'>
+  </myscript-math-web>
+</body>
+<script src="../isMath_for_key.js"></script>
+<script>
+  // 为了隐藏两个需要的key，我采用了动态添加，如果您有自己的key，请删除这个<scirpt>标签里的所有内容
+  function setKye() {
+    let objkey=isKey()
+    let myscript = document.getElementById("mathweb")
+    myscript.setAttribute('hmackey',objkey.hmackey)
+    myscript.setAttribute('applicationkey',objkey.applicationkey)
+   }
+  try{
+    setKye()
+  }catch{
+    alert("请申请有关Key,以便使用手写板功能，申请地址:https://developer.myscript.com/")
+  }
+
+</script>
+
+</html>

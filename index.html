@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- 引入代码高亮插件样式 -->
-  <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet" />
+  <!-- <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet" /> -->
   <!-- 引入阿里云ico图标样式 -->
-  <link rel="stylesheet" href="http://at.alicdn.com/t/font_2161824_78bvz3356e.css" />
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_2161824_78bvz3356e.css" />
   <!-- 代码高亮插件 -->
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
@@ -18,7 +18,8 @@
       margin: 10px auto;
       width: 90%;
     }
-    .info{
+
+    .info {
       width: 90%;
       padding-left: 20px;
     }
@@ -29,12 +30,24 @@
   <div class='info'>
     <h2>wangEditor示例</h2>
     <ul>
-      <li><h3>所有基本功能</h3></li>
-      <li><h3>引入公式编辑器kityformula</h3></li>
-      <li><h3>引入公式手写板功能</h3></li>
-      <li><h3>添加代码高亮显示功能</h3></li>
+      <li>
+        <h3>所有基本功能</h3>
+      </li>
+      <li>
+        <h3>引入公式编辑器kityformula</h3>
+      </li>
+      <li>
+        <h3>引入公式手写板功能</h3>
+      </li>
+      <li>
+        <h3>添加代码高亮显示功能</h3>
+      </li>
     </ul>
+    <button onclick="getHtml()">得到html内容</button>
+    <button onclick="getText()">得到text内容</button>
+    <button onclick="clearCont()">清空编辑器</button>
   </div>
+
   <div id="div1"></div>
 </body>
 
@@ -132,7 +145,25 @@
   editor.highlight = hljs;
   // 配置 server 接口地址
   editor.config.uploadImgServer = "./upload-img";
+  // 得到HTML内容
+
+  // 生成编辑器
   editor.create();
+  // 得到编辑器html内容
+  function getHtml() {
+    let htmls = editor.txt.html()
+    // console.log(htmls);
+    alert(htmls)
+  }
+  // 得到编辑器text内容
+  function getText() {
+    let texts=editor.txt.text()
+    alert(texts)
+   }
+  // 清空编辑器内容
+  function clearCont() {
+    editor.txt.clear()
+   }
 </script>
 
 </html>

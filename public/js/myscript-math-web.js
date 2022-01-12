@@ -1,8 +1,8 @@
-// export default function test(editor) {
- function createKityformula(editor) {
+// export default function(editor) {
+function myscriptMath(editor) {
   // panel 中需要用到的id
-  const inputIFrameId = 'kityformula_' + Math.ceil(Math.random() * 10)
-  const btnOkId = 'kityformula-btn' + Math.ceil(Math.random() * 10)
+  const inputIFrameId = 'myscript_' + Math.ceil(Math.random() * 10)
+  const btnOkId = 'myscript-btn' + Math.ceil(Math.random() * 10)
 
   const conf = {
     width: 900,
@@ -12,10 +12,10 @@
     tabs: [
       {
         // tab 的标题
-        title: editor.i18next.t('menus.panelMenus.formula.插入公式'),
+        title: editor.i18next.t('menus.panelMenus.formula.手写公式'),
         // 模板
         tpl: `<div>
-                  <iframe id="${inputIFrameId}" class="iframe" height="500px" width="100%" frameborder="0" scrolling="no" src="./kityformula/index.html"></iframe>
+                  <iframe id="${inputIFrameId}" class="iframe" height="500px" width="100%" frameborder="0" scrolling="no" src="./public/myscriptMath/index.html"></iframe>
                   <div class="w-e-button-container">
                       <button id="${btnOkId}" class="right">
                           ${editor.i18next.t('确认插入')}
@@ -30,10 +30,7 @@
             fn: () => {
               // 执行插入公式
               const node = document.getElementById(inputIFrameId)
-              const kfe = node.contentWindow.kfe
-
-              let latex = kfe.execCommand('get.source')
-              latex = latex.replace(/\s/g, '') // 去掉空格
+              const latex = node.contentWindow.latex
 
               // 使用 editor.cmd.do  无法关闭弹窗
               // editor.cmd.do(

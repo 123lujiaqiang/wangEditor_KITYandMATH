@@ -1,0 +1,14 @@
+/* index.html样式文件 */
+#div1 {
+  margin: 10px auto;
+  width: 90%;
+}
+
+.info {
+  width: 90%;
+  padding-left: 20px;
+}
+.text{
+  width: 90%;
+  margin: 40px auto;
+}

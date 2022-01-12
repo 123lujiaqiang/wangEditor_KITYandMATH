@@ -2,6 +2,7 @@
 node_modules
 /dist
 isMath_for_key.js
+autoRun.sh
 
 # local env files
 .env.local
